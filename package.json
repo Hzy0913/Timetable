@@ -1,0 +1,22 @@
+{
+  "name": "timetable",
+  "version": "1.0.0",
+  "description": "timetable",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hzy0913/Timetable.git"
+  },
+  "keywords": [
+    "timetable"
+  ],
+  "author": "hzy0913",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hzy0913/Timetable/issues"
+  },
+  "homepage": "https://github.com/Hzy0913/Timetable#readme"
+}

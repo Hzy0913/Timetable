@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <script src="./index.js"></script>
+    <style>
+        #coursesTable {
+            padding: 15px 10px;
+        }
+
+        #Courses-head {
+            background-color: #edffff;
+        }
+
+        .stage_1, .left-hand-1 {
+            background-color: #edffff;
+            color: #72b93a;
+        }
+
+        .stage_2, .left-hand-2 {
+            background-color: #fdfce6;
+            color: #00a2e6;
+        }
+
+        .stage_3, .left-hand-3 {
+            background-color: #e8ffe4;
+            color: #f28b1c;
+        }
+
+        .Courses-head-1 {
+            color: #d80073;
+        }
+
+        .left-hand-1, .left-hand-2, .left-hand-3 {
+            text-align: center;
+            font-size: 14px;
+            letter-spacing: 6px;
+        }
+
+        .Courses-head-2 {
+            color: #ff7d00;
+        }
+
+        .Courses-head-3 {
+            color: #8ac123;
+        }
+
+        .Courses-head-4 {
+            color: #0089c7;
+        }
+
+        .Courses-head-5 {
+            color: #7c5ccb;
+        }
+
+        .Courses-head-6 {
+            color: #ff17a3;
+        }
+
+        .Courses-head-7 {
+            color: #ff5a00;
+        }
+
+        .Courses-content li {
+            text-align: center;
+            color: #666666;
+            font-size: 14px;
+            line-height: 24px;
+        }
+
+        #Courses-head > div {
+            text-align: center;
+            font-size: 14px;
+            line-height: 28px;
+        }
+
+        .left-hand-TextDom {
+            background-color: #edffff;
+        }
+    </style>
+    <title>课表</title>
+</head>
+<body style="background-color: #fff">
+    <div id="coursesTable"></div>
+
+    <script>
+      var windowWidth = window.innerWidth;
+      var courseList = [
+        ['语文语文语文语文语文','语文语文语文语文语文','英语','物理','语文','数学','英语','物理','','数学','英语','物理'],
+        ['数学','语文','物理','物理','语文','语文','语文','','数学','语文','语文','体育'],
+        ['语文','数学','英语','物理','语文','数学','英语','物理','语文','数学','英语','物理'],
+        ['数学','语文','物理','物理','语文','语文','语文','英语','数学','语文','语文','体育'],
+        ['语文','数学','英语','物理','语文','数学','英语','物理','语文','数学','英语','物理'],
+        ['数学','语文','物理','物理','语文','语文','语文','英语','数学','语文','语文','体育'],
+        ['体育','数学','英语','物理','语文','数学','英语','物理','语文','数学','英语','物理']
+      ];
+      var week = windowWidth > 360 ? ['星期一', '星期二', '星期三', '星期四', '星期五', '周六'] :
+        ['一', '二', '三', '四', '五', '六', '日'];
+      var courseType = [['上午', 2],[{index: '2',name: '上午'}, 1],[{index: '3',name: '中午'}, 1], ['下午', 4], ['晚上', 4]];
+
+      var times = new Timetable({
+        el: '#coursesTable',
+        timetables: courseList,
+        week: week,
+        timetableType: courseType,
+        gridOnClick: function (e) {
+          console.log(e)
+        },
+        styles:{
+          leftHandWidth: '',
+          Gheight: 40,
+          palette: ['red']
+        }
+      });
+      times.setOption({week: ['一', '二', '三', '四', '五', '六', '日'],styles:{
+          palette: ['#dedcda']
+        }, timetableType:courseType, gridOnClick: function (e) {
+          console.log(e, 111)
+        }})
+
+    </script>
+</body>
+</html>

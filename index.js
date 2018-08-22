@@ -88,7 +88,7 @@
       head.id = 'Courses-head';
       week.forEach(function (item, index) {
         var weekItem = document.createElement("div");
-        var highlightClass = highlightWeek === item ? 'highlight-week ' : '';
+        var highlightClass = highlightWeek === (index + 1) ? 'highlight-week ' : '';
         weekItem.className = highlightClass + 'Courses-head-' + (index + 1) ;
         weekItem.innerText = item;
         weekItem.style.cssFloat = 'left';

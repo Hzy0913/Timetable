@@ -13,30 +13,12 @@
             background-color: #edffff;
         }
 
-        .stage_1, .left-hand-1 {
-            background-color: #edffff;
-            color: #72b93a;
-        }
 
-        .stage_2, .left-hand-2 {
-            background-color: #fdfce6;
-            color: #00a2e6;
-        }
-
-        .stage_3, .left-hand-3 {
-            background-color: #e8ffe4;
-            color: #f28b1c;
-        }
 
         .Courses-head-1 {
             color: #d80073;
         }
 
-        .left-hand-1, .left-hand-2, .left-hand-3 {
-            text-align: center;
-            font-size: 14px;
-            letter-spacing: 6px;
-        }
 
         .Courses-head-2 {
             color: #ff7d00;
@@ -75,11 +57,43 @@
             line-height: 28px;
         }
 
-        .left-hand-TextDom {
-            background-color: #edffff;
+        .left-hand-TextDom, #Courses-head {
+            background-color: #f2f6f7;
+        }
+
+        .Courses-leftHand{
+            background-color: #f2f6f7;
+        }
+        .Courses-leftHand{
+            color: #727582;
+            font-size: 12px;
+        }
+        .Courses-leftHand p {
+            text-align: center;
+            font-weight: 900;
+        }
+
+        #Courses-head>div{
+            border-left: none !important;
+        }
+        .Courses-leftHand>div{
+            border-bottom: 1px dashed rgb(219, 219, 219);
+        }
+        .Courses-leftHand>div:last-child{
+            border-bottom: none !important;
+        }
+        .left-hand-TextDom, #Courses-head{
+            border-bottom: 1px solid rgba(0,0,0,0.1) !important;
+        }
+        .Courses-content>ul{
+            border-bottom: 1px dashed rgb(219, 219, 219);
+            box-sizing: border-box;
+        }
+        .Courses-content>ul:last-child{
+            border-bottom: none !important;
         }
     </style>
-    <title>课表</title>
+    <title></title>
 </head>
 <body style="background-color: #fff">
     <div id="coursesTable"></div>
@@ -97,27 +111,41 @@
       ];
       var week = windowWidth > 360 ? ['星期一', '星期二', '星期三', '星期四', '星期五', '周六'] :
         ['一', '二', '三', '四', '五', '六', '日'];
-      var courseType = [['上午', 2],[{index: '2',name: '上午'}, 1],[{index: '3',name: '中午'}, 1], ['下午', 4], ['晚上', 4]];
+      var courseType = [
+        [{index: '1',name: '8:30'}, 1],
+        [{index: '2',name: '9:30'}, 1],
+        [{index: '3',name: '10:30'}, 1],
+        [{index: '4',name: '11:30'}, 1],
+        [{index: '5',name: '12:30'}, 1],
+        [{index: '6',name: '14:30'}, 1],
+        [{index: '7',name: '15:30'}, 1],
+        [{index: '8',name: '16:30'}, 1],
+        [{index: '9',name: '17:30'}, 1],
+        [{index: '10',name: '18:30'}, 1],
+        [{index: '11',name: '19:30'}, 1],
+        [{index: '12',name: '20:30'}, 1]
+      ];
 
       var times = new Timetable({
         el: '#coursesTable',
         timetables: courseList,
         week: week,
         timetableType: courseType,
+        highlightWeek: '星期一',
         gridOnClick: function (e) {
           console.log(e)
         },
         styles:{
           leftHandWidth: '',
           Gheight: 40,
-          palette: ['red']
+          // palette: ['red']
         }
       });
-      times.setOption({week: ['一', '二', '三', '四', '五', '六', '日'],styles:{
-          palette: ['#dedcda']
-        }, timetableType:courseType, gridOnClick: function (e) {
-          console.log(e, 111)
-        }})
+      // times.setOption({week: ['一', '二', '三', '四', '五', '六', '日'],styles:{
+      //     palette: ['#dedcda']
+      //   }, timetableType:courseType, gridOnClick: function (e) {
+      //     console.log(e, 111)
+      //   }})
 
     </script>
 </body>

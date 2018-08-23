@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <script src="./index.js"></script>
+    <title>课表</title>
+    <style>
+        #coursesTable {
+            padding: 15px 10px;
+        }
+        .Courses-head > div {
+            text-align: center;
+            font-size: 14px;
+            line-height: 28px;
+        }
+        .left-hand-TextDom, .Courses-head {
+             background-color: #f2f6f7;
+         }
+
+        .Courses-leftHand{
+            background-color: #f2f6f7;
+            font-size: 12px;
+        }
+        .Courses-leftHand .left-hand-index{
+            color: #9c9c9c;
+            margin-bottom: 4px !important;
+        }
+        .Courses-leftHand p {
+            text-align: center;
+            font-weight: 900;
+        }
+        .Courses-leftHand>div{
+            padding-top: 5px;
+            border-bottom: 1px dashed rgb(219, 219, 219);
+        }
+        .Courses-leftHand>div:last-child{
+            border-bottom: none !important;
+        }
+        .left-hand-TextDom, .Courses-head{
+            border-bottom: 1px solid rgba(0,0,0,0.1) !important;
+        }
+        .Courses-content>ul{
+            border-bottom: 1px dashed rgb(219, 219, 219);
+            box-sizing: border-box;
+        }
+        .Courses-content>ul:last-child{
+            border-bottom: none !important;
+        }
+        .highlight-week{
+            color: #02a9f5 !important;
+        }
+        .Courses-content li {
+            text-align: center;
+            color: #666666;
+            font-size: 14px;
+            line-height: 50px;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="coursesTable"></div>
+
+    <script>
+      var courseList = [
+        ['语文','语文','英语','物理','语文','数学','英语','物理','物理','数学','英语','物理'],
+        ['数学','语文','物理','物理','语文','语文','语文','物理','数学','语文','语文','体育'],
+        ['语文','数学','英语','物理','语文','数学','英语','物理','语文','数学','英语','物理'],
+        ['数学','语文','物理','物理','语文','语文','语文','英语','数学','语文','语文','体育'],
+        ['语文','数学','英语','物理','语文','数学','英语','物理','语文','数学','英语','物理'],
+        ['数学','语文','物理','物理','语文','语文','语文','英语','数学','语文','语文','体育'],
+        ['体育','数学','英语','物理','语文','数学','英语','物理','语文','数学','英语','物理']
+      ];
+      var week =  window.innerWidth > 360 ? ['周一', '周二', '周三', '周四', '周五', '周六', '周日'] :
+        ['一', '二', '三', '四', '五', '六', '日'];
+      var now = new Date();
+      var day = now.getDay()
+      var courseType = [
+        [{index: '1',name: '8:30'}, 1],
+        [{index: '2',name: '9:30'}, 1],
+        [{index: '3',name: '10:30'}, 1],
+        [{index: '4',name: '11:30'}, 1],
+        [{index: '5',name: '12:30'}, 1],
+        [{index: '6',name: '14:30'}, 1],
+        [{index: '7',name: '15:30'}, 1],
+        [{index: '8',name: '16:30'}, 1],
+        [{index: '9',name: '17:30'}, 1],
+        [{index: '10',name: '18:30'}, 1],
+        [{index: '11',name: '19:30'}, 1],
+        [{index: '12',name: '20:30'}, 1]
+      ];
+
+      var times = new Timetable({
+        el: '#coursesTable',
+        timetables: courseList,
+        week: week,
+        merge: false,
+        timetableType: courseType,
+        highlightWeek: day,
+        gridOnClick: function (e) {
+          console.log(e)
+        },
+        styles:{
+          leftHandWidth: 50,
+          Gheight: 50,
+        }
+      });
+    </script>
+</body>
+</html>

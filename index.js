@@ -3,6 +3,7 @@
     this.el = document.querySelector(option.el);
     this.Timetables = option.timetables || [];
     this.week = option.week || [];
+    this.merge = typeof option.merge === 'boolean' ? option.merge : true;
     this.TimetableType = option.timetableType || [];
     this.leftHandText = [];
     this.highlightWeek = option.highlightWeek || '';
@@ -19,6 +20,7 @@
       var option = option || {};
       var style = option.styles || {};
       var gridOnClick = option.gridOnClick || this.gridOnClick;
+      var merge = typeof option.merge === 'boolean' ? option.merge : this.merge;
       var highlightWeek = option.highlightWeek || this.highlightWeek;
       var leftHandText = this.leftHandText;
       var leftHandWidth = style.leftHandWidth || this.leftHandWidth;
@@ -67,27 +69,29 @@
       });
 
       var listMerge = [];
-      Timetables.forEach((list, i) => {
-        if (!listMerge[i]){
-          listMerge[i] = [];
-        }
-        list.forEach((item, index) => {
-          if (!index) {
-            return listMerge[i].push({name: item, length: 1});
+      if (merge) {
+        Timetables.forEach((list, i) => {
+          if (!listMerge[i]){
+            listMerge[i] = [];
           }
-          if (item === (listMerge[i][index-1] ||{}).name && item) {
-            var sameIndex = (listMerge[i][index-1] ||{}).sameIndex;
-            if (sameIndex || sameIndex === 0) {
-              listMerge[i][sameIndex].length ++;
-              return listMerge[i].push({name: item, length: 0, sameIndex: sameIndex});
+          list.forEach((item, index) => {
+            if (!index) {
+              return listMerge[i].push({name: item, length: 1});
             }
-            listMerge[i][index-1].length ++;
-            return listMerge[i].push({name: item, length: 0, sameIndex: index-1});
-          } else {
-            return listMerge[i].push({name: item, length: 1});
-          }
-        });
-      })
+            if (item === (listMerge[i][index-1] ||{}).name && item) {
+              var sameIndex = (listMerge[i][index-1] ||{}).sameIndex;
+              if (sameIndex || sameIndex === 0) {
+                listMerge[i][sameIndex].length ++;
+                return listMerge[i].push({name: item, length: 0, sameIndex: sameIndex});
+              }
+              listMerge[i][index-1].length ++;
+              return listMerge[i].push({name: item, length: 0, sameIndex: index-1});
+            } else {
+              return listMerge[i].push({name: item, length: 1});
+            }
+          });
+        })
+      }
 
       var head = document.createElement("div");
       head.style.overflow = 'hidden';
@@ -128,7 +132,7 @@
           courseItem.style.height = Gheight + 'px';
           courseItem.style.boxSizing = 'border-box';
           courseItem.style.position = 'relative';
-          if (true && listMerge[i][index].length > 1) {
+          if (merge && listMerge[i][index].length > 1) {
             var mergeDom = document.createElement("span");
             mergeDom.style.position = 'absolute';
             mergeDom.style.zIndex = 9;
@@ -145,7 +149,7 @@
             mergeDom.innerText = listMerge[i][index].name;
             courseItem.appendChild(mergeDom);
           } else {
-            if (listMerge[i][index].length === 0) {
+            if (merge && listMerge[i][index].length === 0) {
               courseItem.innerText = '';
             } else {
               courseItem.innerText = item || '';
@@ -161,7 +165,7 @@
               name:item,
               week:   week[i],
               index: index + 1,
-              length: listMerge[i][index].length
+              length: merge ? listMerge[i][index].length : 1
             };
             gridOnClick && gridOnClick(info);
           };

@@ -10,7 +10,7 @@
     var styles = option.styles || {};
     this.leftHandWidth = styles.leftHandWidth || 40;
     this.Gheight = styles.Gheight || 48;
-    this.defaultPalette = ['#f05261', '#48a8e4', '#ffd061 ', '#52db9a', '#70d3e6', '#52db9a', '#f3d147', '#4adbc3', '#f3db49', '#76bfcd', '#b495e1'];
+    this.defaultPalette = ['#f05261', '#48a8e4', '#ffd061', '#52db9a', '#70d3e6', '#52db9a', '#3f51b5', '#f3d147', '#4adbc3', '#673ab7', '#f3db49', '#76bfcd', '#b495e1', '#ff9800', '#8bc34a'];
     this.palette = (styles.palette || []).concat(this.defaultPalette)
     this._init();
   };
@@ -23,14 +23,20 @@
       var leftHandText = this.leftHandText;
       var leftHandWidth = style.leftHandWidth || this.leftHandWidth;
       var Gheight = style.Gheight || this.Gheight;
-      var palettes = style.palette ? (style.palette || []).concat(this.defaultPalette) : this.palette;
-      var palette = JSON.parse(JSON.stringify(palettes));
+      var palette = style.palette ? (style.palette || []).concat(this.defaultPalette) : this.palette;
 
       var Timetables = option.timetables || this.Timetables;
       var week = option.week || this.week;
       var TimetableType = JSON.parse(JSON.stringify(option.timetableType || this.TimetableType));
       var deepCopyTimetableType = option.timetableType || this.TimetableType;
-
+      var TimetableTypeLength = TimetableType.length;
+      Timetables.forEach(function (item, index) {
+        if(item.length < TimetableTypeLength) {
+          for (var i = 0; i < TimetableTypeLength - item.length; i ++) {
+            item.push('');
+          }
+        }
+      });
       if (option.setNewOption) {
         this.el.removeChild(this.el.childNodes[0]);
       }
@@ -85,7 +91,7 @@
 
       var head = document.createElement("div");
       head.style.overflow = 'hidden';
-      head.id = 'Courses-head';
+      head.className = 'Courses-head';
       week.forEach(function (item, index) {
         var weekItem = document.createElement("div");
         var highlightClass = highlightWeek === (index + 1) ? 'highlight-week ' : '';
@@ -101,6 +107,7 @@
 
       var courseListContent = document.createElement("div");
       courseListContent.className = 'Courses-content';
+      var paletteIndex = 0;
       timetable.forEach(function (values, index) {
         var courseItems = document.createElement("ul");
         courseItems.style.listStyle = 'none';
@@ -119,8 +126,6 @@
           courseItem.style.cssFloat = 'left';
           courseItem.style.width = 100/week.length + '%';
           courseItem.style.height = Gheight + 'px';
-          // courseItem.style.borderLeft = '1px solid #dbdbdb';
-          // courseItem.style.borderBottom = '1px solid #dbdbdb';
           courseItem.style.boxSizing = 'border-box';
           courseItem.style.position = 'relative';
           if (true && listMerge[i][index].length > 1) {
@@ -131,8 +136,11 @@
             mergeDom.style.height = Gheight * listMerge[i][index].length + 'px';
             mergeDom.style.left = 0;
             mergeDom.style.top = 0;
-            mergeDom.style.backgroundColor = palette[0];
-            palette.shift();
+            mergeDom.style.backgroundColor = palette[paletteIndex];
+            paletteIndex ++;
+            if (paletteIndex > palette.length) {
+              paletteIndex = 0;
+            }
             mergeDom.style.color = '#fff';
             mergeDom.innerText = listMerge[i][index].name;
             courseItem.appendChild(mergeDom);
@@ -166,7 +174,7 @@
       this.el.appendChild(courseWrapper);
 
       var courseItemDomHeight = (document.querySelector('.stage_1 li') || document.querySelector('.stage_none li')).offsetHeight;
-      var coursesHeadDomHeight = document.querySelector('#Courses-head').offsetHeight;
+      var coursesHeadDomHeight = document.querySelector('.Courses-head').offsetHeight;
 
       var leftHandTextDom = document.createElement("div");
       leftHandTextDom.className = 'left-hand-TextDom'

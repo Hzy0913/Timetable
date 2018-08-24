@@ -70,11 +70,11 @@
 
       var listMerge = [];
       if (merge) {
-        Timetables.forEach((list, i) => {
+        Timetables.forEach(function(list, i) {
           if (!listMerge[i]){
             listMerge[i] = [];
           }
-          list.forEach((item, index) => {
+          list.forEach(function(item, index) {
             if (!index) {
               return listMerge[i].push({name: item, length: 1});
             }
@@ -90,7 +90,7 @@
               return listMerge[i].push({name: item, length: 1});
             }
           });
-        })
+        });
       }
 
       var head = document.createElement("div");
@@ -99,7 +99,7 @@
       week.forEach(function (item, index) {
         var weekItem = document.createElement("div");
         var highlightClass = highlightWeek === (index + 1) ? 'highlight-week ' : '';
-        weekItem.className = highlightClass + 'Courses-head-' + (index + 1) ;
+        weekItem.className = highlightClass + 'Courses-head-' + (index + 1);
         weekItem.innerText = item;
         weekItem.style.cssFloat = 'left';
         weekItem.style.boxSizing = 'border-box';
@@ -181,7 +181,7 @@
       var coursesHeadDomHeight = document.querySelector('.Courses-head').offsetHeight;
 
       var leftHandTextDom = document.createElement("div");
-      leftHandTextDom.className = 'left-hand-TextDom'
+      leftHandTextDom.className = 'left-hand-TextDom';
       leftHandTextDom.style.height = coursesHeadDomHeight + 'px';
       leftHandTextDom.style.boxSizing = 'border-box';
 
@@ -194,7 +194,7 @@
 
       deepCopyTimetableType.forEach(function (item, index) {
         var handItem = document.createElement("div");
-        handItem.style.width = '100%'
+        handItem.style.width = '100%';
         handItem.style.height = courseItemDomHeight * item[1] + 'px';
         handItem.style.boxSizing = 'border-box';
         if (typeof item[0] === 'object') {

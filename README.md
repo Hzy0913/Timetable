@@ -1,6 +1,6 @@
 
 ## Timetables
-日程表插件，在线预览 [demo1](http://preview.binlive.cn/Timetables/index.html "demo1")[demo2](http://preview.binlive.cn/Timetables/example.html "demo1")
+日程表插件，在线预览 [demo1](http://preview.binlive.cn/Timetables/index.html "demo1") 、[demo2](http://preview.binlive.cn/Timetables/example.html "demo1")
 
 ![Timetables1](https://github.com/Hzy0913/hanlibrary/blob/master/Timetables1.png "Timetables1")![Timetables](https://github.com/Hzy0913/hanlibrary/blob/master/Timetables.png "Timetables")
 
@@ -8,14 +8,14 @@
 ## 安装
 
 ```
-npm install Timetables
+npm install timetables
 ```
 ##### 直接引入
 或者直接引入该地址下[Timetables.min.js](https://github.com/Hzy0913/Timetable/tree/master/exampel/Timetables.min.js "Timetables.min.js")
 ## 使用
 
 ```js
-import Timetables from 'Timetables';
+import Timetables from 'timetables';
 
 let Timetable;
 

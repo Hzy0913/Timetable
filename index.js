@@ -1,5 +1,5 @@
 (function(global) {
-  var Timetable = function(option) {
+  var Timetables = function(option) {
     this.el = document.querySelector(option.el);
     this.Timetables = option.timetables || [];
     this.week = option.week || [];
@@ -15,7 +15,7 @@
     this.palette = (styles.palette || []).concat(this.defaultPalette)
     this._init();
   };
-  Timetable.prototype = {
+  Timetables.prototype = {
     _init: function(option) {
       var option = option || {};
       var style = option.styles || {};
@@ -217,7 +217,7 @@
       this._init(option);
     }
   };
-  if (typeof module !== 'undefined' && module.exports) module.exports = Timetable;
-  if (typeof define === 'function') define(function() { return Timetable; });
-  global.Timetable = Timetable;
+  if (typeof module !== 'undefined' && module.exports) module.exports = Timetables;
+  if (typeof define === 'function') define(function() { return Timetables; });
+  global.Timetables = Timetables;
 })(this);

@@ -95,7 +95,7 @@
       ];
       var week = window.innerWidth > 360 ? ['周一', '周二', '周三', '周四', '周五'] :
         ['一', '二', '三', '四', '五'];
-      var now = new Date();
+      var now = new Date().getDay();
       var day = now.getDay()
       var courseType = [
         [{index: '1',name: '8:30'}, 1],

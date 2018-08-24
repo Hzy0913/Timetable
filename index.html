@@ -52,9 +52,29 @@
         }
         .Courses-content li {
             text-align: center;
-            color: #666666;
+            color: #fff;
             font-size: 14px;
             line-height: 50px;
+        }
+        .stage_1, .left-hand-1{
+            background-color: #FF6666;
+        }
+        .stage_2, .left-hand-2{
+            background-color: #3399CC;
+        }
+        .stage_3, .left-hand-3{
+            background-color: #66CCCC;
+        }
+        .Courses-leftHand{
+            border-right: 1px solid #e0e0e0;
+            color: #fff;
+        }
+        .Courses-leftHand> div {
+            writing-mode: vertical-lr;
+            text-align: center;
+            line-height: 50px;
+            font-size: 16px;
+            letter-spacing: 10px;
         }
 
     </style>
@@ -77,18 +97,9 @@
       var now = new Date();
       var day = now.getDay()
       var courseType = [
-        [{index: '1',name: '8:30'}, 1],
-        [{index: '2',name: '9:30'}, 1],
-        [{index: '3',name: '10:30'}, 1],
-        [{index: '4',name: '11:30'}, 1],
-        [{index: '5',name: '12:30'}, 1],
-        [{index: '6',name: '14:30'}, 1],
-        [{index: '7',name: '15:30'}, 1],
-        [{index: '8',name: '16:30'}, 1],
-        [{index: '9',name: '17:30'}, 1],
-        [{index: '10',name: '18:30'}, 1],
-        [{index: '11',name: '19:30'}, 1],
-        [{index: '12',name: '20:30'}, 1]
+        ['上午', 4],
+        ['下午', 4],
+        ['晚上', 4]
       ];
 
       var times = new Timetable({

@@ -11,7 +11,7 @@
 npm install Timetables
 ```
 ##### 直接引入
-可以直接引入该地址下[Timetables.min.js](https://github.com/Hzy0913/Timetable/tree/master/exampel/Timetables.min.js "Timetables.min.js")
+或者直接引入该地址下[Timetables.min.js](https://github.com/Hzy0913/Timetable/tree/master/exampel/Timetables.min.js "Timetables.min.js")
 ## 使用
 
 ```js
@@ -80,9 +80,9 @@ var timetableType = [
 var week =  ['周一', '周二', '周三', '周四', '周五'];
 var highlightWeek = new Date().getDay();
 var styles = {
-      Gheight: 50,
-	  leftHandWidth: 50,
-	  palette: ['#ff6633', '#eeeeee']
+    Gheight: 50,
+    leftHandWidth: 50,
+    palette: ['#ff6633', '#eeeeee']
 };
 
 // 实例化(初始化课表)
@@ -113,18 +113,18 @@ function onChange() {
     }})
 };
 ```
- - `timetables` 参数为表格内容项,格式为二维数组,数组第二纬的长度需要和`timetableType `中每一项的长度的累计总和一致, 长度不足时会自动以空字符串补全。
+ - `timetables` 参数为表格内容项,格式为二维数组,数组第二维中每项长度需要和`timetableType `中每一项的长度的累计总和一致, 长度不足时会自动以空字符串追加补全。
  同一天内临近的日程相同时会自动合并为一格展示(设置**merge**参数为false时不自动合并)。
  - `timetableType` 参数可以将表格内容分类,数组内的一项为行标签,用于分隔行。
- 每一项中第一个可以是字符串或者一个对象,当为对象时会自动生成多项dom节点
+ 每一项中第一个可以是字符串或者一个对象,当为对象时会自动生成多项dom节点。
  第二项为要分类的长度，所有长度累计总和应该与`timetables`参数中每一项的保持长度一致。
  - `week` 参数为表格列名,将内容依次分隔为相应列数
  - `highlightWeek` 参数为数字索引(从1开始),索引对应你上面`week`参数里的项,传入索引后会在表格头对应节点加上一个class
- - `styles` 参数为表格表格样式
- **Gheight** 为表格内每一个单元格高度(number)单位为'px'
- **leftHandWidth ** 为表格左侧日程分类样式宽带度(number)单位为'px'
+ - `styles` 参数为表格表格样式。
+ **Gheight** 为表格内每一个单元格高度(number)单位为'px'、
+ **leftHandWidth ** 为表格左侧日程分类样式宽带度(number)单位为'px'、
  **palette** 为合并相同课程单元格后颜色调色盘,默认有15种颜色,可以传入颜色数组自定义(传入的颜色会与默认颜色合并,并优先使用自定义颜色)
- - `setOption` 在实例化对象上可以使用**setOption**方法重新渲染表格, 参数使用同上,不需要再传入el参数,默认使用实例时候的dom节点
+ - `setOption` 在实例化对象上可以使用**setOption**方法重新渲染表格。参数使用同上,不需要再传入el参数绑定dom,默认使用实例化时候的dom节点
  - 日程表没有过多进行样式装饰,可以根据已有的css类自行美化
 ## 作者
 

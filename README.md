@@ -15,7 +15,7 @@ npm install timetables
 ## 使用
 
 ```js
-import Timetables from 'timetables';
+import Timetables from 'timetablestim';
 
 let Timetable;
 
@@ -27,7 +27,7 @@ var courseList = [
         ['数学','语文','物理','物理','语文','语文','语文','英语','数学','语文','语文','体育'],
         ['语文','数学','英语','物理','语文','数学','英语','物理','语文','数学','英语','物理'],
  ];
-Timetable = new Timetable({
+Timetable = new Timetables({
     el: '#coursesTable',
     timetables: courseList,
     week: ['一', '二', '三', '四', '五'],
@@ -86,7 +86,7 @@ var styles = {
 };
 
 // 实例化(初始化课表)
-var Timetable = new Timetable({
+var Timetable = new Timetables({
     el: '#coursesTable',
     timetables: timetables,
     week: week,

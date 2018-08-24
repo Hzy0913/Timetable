@@ -1,8 +1,8 @@
 
 ## Timetables
 日程表插件，在线预览 [demo1](http://preview.binlive.cn/Timetables/index.html "demo1")[demo2](http://preview.binlive.cn/Timetables/example.html "demo1")
-![Timetables1](https://github.com/Hzy0913/hanlibrary/blob/master/Timetables1.png "Timetables1")
-![Timetables](https://github.com/Hzy0913/hanlibrary/blob/master/Timetables.png "Timetables")
+
+![Timetables1](https://github.com/Hzy0913/hanlibrary/blob/master/Timetables1.png "Timetables1")![Timetables](https://github.com/Hzy0913/hanlibrary/blob/master/Timetables.png "Timetables")
 
 
 ## 安装
@@ -125,7 +125,7 @@ function onChange() {
  **leftHandWidth ** 为表格左侧日程分类样式宽带度(number)单位为'px'
  **palette** 为合并相同课程单元格后颜色调色盘,默认有15种颜色,可以传入颜色数组自定义(传入的颜色会与默认颜色合并,并优先使用自定义颜色)
  - `setOption` 在实例化对象上可以使用**setOption**方法重新渲染表格, 参数使用同上,不需要再传入el参数,默认使用实例时候的dom节点
- - 日程表没有
+ - 日程表没有过多进行样式装饰,可以根据已有的css类自行美化
 ## 作者
 
 See [飞翔的荷兰人](https://github.com/Hzy0913 "飞翔的荷兰人").

@@ -12,7 +12,7 @@
     this.leftHandWidth = styles.leftHandWidth || 40;
     this.Gheight = styles.Gheight || 48;
     this.defaultPalette = ['#f05261', '#48a8e4', '#ffd061', '#52db9a', '#70d3e6', '#52db9a', '#3f51b5', '#f3d147', '#4adbc3', '#673ab7', '#f3db49', '#76bfcd', '#b495e1', '#ff9800', '#8bc34a'];
-    this.palette = (styles.palette || []).concat(this.defaultPalette)
+    this.palette = (typeof styles.palette === 'boolean' && !styles.palett) ? false : (styles.palette || []).concat(this.defaultPalette)
     this._init();
   };
   Timetables.prototype = {
@@ -25,7 +25,12 @@
       var leftHandText = this.leftHandText;
       var leftHandWidth = style.leftHandWidth || this.leftHandWidth;
       var Gheight = style.Gheight || this.Gheight;
-      var palette = style.palette ? (style.palette || []).concat(this.defaultPalette) : this.palette;
+      var palette;
+      if (typeof style.palette === 'boolean' && !style.palette) {
+        palette = false
+      } else {
+        palette = style.palette ? (style.palette || []).concat(this.defaultPalette) : this.palette;
+      }
 
       var Timetables = option.timetables || this.Timetables;
       var week = option.week || this.week;
@@ -140,18 +145,31 @@
             mergeDom.style.height = Gheight * listMerge[i][index].length + 'px';
             mergeDom.style.left = 0;
             mergeDom.style.top = 0;
-            mergeDom.style.backgroundColor = palette[paletteIndex];
-            paletteIndex ++;
-            if (paletteIndex > palette.length) {
-              paletteIndex = 0;
+            if (palette) {
+              mergeDom.style.backgroundColor = palette[paletteIndex];
+              mergeDom.style.color = '#fff';
+              paletteIndex ++;
+              if (paletteIndex > palette.length) {
+                paletteIndex = 0;
+              }
             }
-            mergeDom.style.color = '#fff';
             mergeDom.innerText = listMerge[i][index].name;
+            mergeDom.className = 'course-hasContent'
             courseItem.appendChild(mergeDom);
           } else {
             if (merge && listMerge[i][index].length === 0) {
               courseItem.innerText = '';
             } else {
+              if (item && palette) {
+                courseItem.style.backgroundColor = palette[paletteIndex];
+                courseItem.style.color = '#fff';
+                paletteIndex ++;
+                if (paletteIndex > palette.length) {
+                  paletteIndex = 0;
+                }
+              } else if (item) {
+                courseItem.className = 'course-hasContent'
+              }
               courseItem.innerText = item || '';
             }
           }

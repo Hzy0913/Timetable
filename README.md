@@ -121,7 +121,7 @@ function onChange() {
  - `highlightWeek` 参数为数字索引(从1开始),索引对应你上面`week`参数里的项,传入索引后会在表格头对应节点加上一个class
  - `styles` 参数为表格表格样式:<br/> **Gheight** 为表格内每一个单元格高度(number)单位为'px' <br/>  **leftHandWidth** 为表格左侧日程分类样式宽带度(number)单位为'px'<br/>**palette** 为合并相同课程单元格后颜色调色盘,默认有15种颜色,可以传入颜色数组自定义(传入的颜色会与默认颜色合并,并优先使用自定义颜色)，设为**false**时不为课程单元格生成色盘颜色
  - `setOption` 在实例化对象上可以使用**setOption**方法重新渲染表格。参数使用同上,不需要再传入el参数绑定dom,默认使用实例化时候的dom节点
- - 日程表没有过多进行样式装饰,可以根据已有的css类自行美化。有课程内容的节点会绑定名为**course-hasContent**的class，课程行单元会根据timetableType的分类对应生成**stage_***的class，
+ - 日程表没有过多进行样式装饰,可以根据已有的css类自行美化。例如：有课程内容的节点会绑定名为**course-hasContent**的class，课程行单元会根据timetableType的分类对应生成**stage_(number)**的class，可以审查元素找到对应的自行修改样式。
 ## 作者
 
 See [飞翔的荷兰人](https://github.com/Hzy0913 "飞翔的荷兰人").

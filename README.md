@@ -48,12 +48,12 @@ Timetable = new Timetables({
 | el  | String(必传)   | 绑定dom节点的id('#id')  |
 | timetables  | Array(必传)   | 日程表内容，格式为二维数组  |
 | week  | Array(必传)   | 日程表头部周，格式为二维数组  |
-| timetableType  | Array(必传)   | 日程表左侧分类,格式为二维数组  |
-| highlightWeek  | Number  | 传入表头当天的索引,为日程表头部高亮某周增加一个class(可自定义样式)  |
+| timetableType  | Array(必传)   | 日程表左侧分类，格式为二维数组  |
+| highlightWeek  | Number  | 传入表头当天的索引，为日程表头部高亮某周增加一个class(可自定义样式)  |
 | styles  | Object   | 日程表内容样式，具体使用见下文  |
 | merge  | Boolean   | 是否合并一天内临近的相同日程(默认为true)  |
-| gridOnClick  | Function   | 单元格点击触发事件,方法参数中可获取到该格的信息 |
-| setOption  | Function   | 实例化上的方法, 重新设置参数渲染表格,参数同上(没有el参数) |
+| gridOnClick  | Function   | 单元格点击触发事件，方法参数中可获取到该格的信息 |
+| setOption  | Function   | 实例化上的方法，重新设置参数渲染表格，参数同上(没有el参数) |
 
 
 #### 参数示例

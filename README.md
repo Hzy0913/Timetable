@@ -46,8 +46,8 @@ Timetable = new Timetables({
 | 参数or方法	  |  类型  | 说明   |
 | ------------ | ------------ | ------------ |
 | el  | String(必传)   | 绑定dom节点的id('#id')  |
-| timetables  | Array(必传)   | 日程表内容,格式为二维数组  |
-| week  | Array(必传)   | 日程表头部周,格式为二维数组  |
+| timetables  | Array(必传)   | 日程表内容，格式为二维数组  |
+| week  | Array(必传)   | 日程表头部周，格式为二维数组  |
 | timetableType  | Array(必传)   | 日程表左侧分类,格式为二维数组  |
 | highlightWeek  | Number  | 传入表头当天的索引,为日程表头部高亮某周增加一个class(可自定义样式)  |
 | styles  | Object   | 日程表内容样式，具体使用见下文  |

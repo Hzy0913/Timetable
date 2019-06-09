@@ -17,7 +17,7 @@ npm install timetables
 ## 使用
 
 ```js
-import Timetables from 'timetablestim';
+import Timetables from 'timetables';
 
 let Timetable;
 

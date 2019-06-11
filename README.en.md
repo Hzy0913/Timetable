@@ -27,7 +27,7 @@ var timetableList = [
   ['English','Maths','Physics','Science','English','Maths','Physics','Science','English','Maths','Physics','Science'],
 ];
 
-// You can create a timetables instance with options to set configuration.
+// You can create a timetable instance with options to set configuration.
 Timetable = new Timetables({
   el: '#coursesTable',
   timetables: timetableList,
@@ -39,3 +39,16 @@ Timetable = new Timetables({
   ],
 });
 ```
+## options & methods
+
+| Option or Method	  |  Type  | Description   |
+| ------------ | ------------ | ------------ |
+| el  | String(required)   | The container dom element id ('#id')  |
+| timetables  | Array(required)   | The content of timetable (two-dimensional array)  |
+| week  | Array(required)   | Head week of timetable (two-dimensional array)  |
+| timetableType  | Array(required)   | The left side classification of timetable (two-dimensional array)   |
+| highlightWeek  | Number  | Set head week highligh, pass in the index of this day, it's will be generate a className(you can custom style)  |
+| styles  | Object   | The grid's style of timetable, more description see below   |
+| merge  | Boolean   | Merge the same content that are approaching in one day(defualt is true)  |
+| gridOnClick  | Function   |  Cell click trigger event, method parameters can get the information of the this cell  |
+| setOption  | Function   | The instance method, use the new options reset and render timetable, options same as above (no have `el` option) |

@@ -112,3 +112,5 @@ function onChange() {
     }})
 };
 ```
+
+ - `timetables` Set content of timetable，option is two-dimensional array type，subitem arrya

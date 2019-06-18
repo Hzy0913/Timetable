@@ -49,7 +49,7 @@ Timetable = new Timetables({
 | timetableType  | Array(required)   | The left side classification of timetable (two-dimensional array)   |
 | highlightWeek  | Number  | Set head week highligh, pass in the index of this day, it's will be generate a className(you can custom style)  |
 | styles  | Object   | The grid's style of timetable, more description see below   |
-| merge  | Boolean   | Merge the same content that are approaching in one day(defualt is true)  |
+| merge  | Boolean   | Merge the same content that are approaching on the same day(default is true)  |
 | gridOnClick  | Function   |  Cell click trigger event, method parameters can get the information of the this cell  |
 | setOption  | Function   | The instance method, use the new options reset and render timetable, options same as above (no have `el` option) |
 
@@ -113,4 +113,5 @@ function onChange() {
 };
 ```
 
- - `timetables` Set content of timetable，option is two-dimensional array type，subitem arrya
+ - `timetables` Set content of timetable, option is two-dimensional array type, the subitem of this array need to be the same as length of `timetableType` option. It's will be auto filling by empty string when length of subitem is not enough. In the subitem, the same and approached content will be merge(set **merge** option is `false`, merger will not take effect)
+ - `timetableType` The option can categorize `timetables` contents, it's two-dimensional array type. <br/> The first item in the subitem of this array can be a `string` or `object`, if it's a object, each value all will be create Dom, and key of object will be ClassName of this Dom. <br/> The second item in the subitem is a number type, it's mean length of this classification. The sum of all lengths should be equal to subitem length of `timetables` option

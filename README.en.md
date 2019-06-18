@@ -115,4 +115,5 @@ function onChange() {
 
  - `timetables` Set content of timetable, option is two-dimensional array type, the subitem of this array need to be the same as length of `timetableType` option. It's will be auto filling by empty string when length of subitem is not enough. In the subitem, the same and approached content will be merge(set **merge** option is `false`, merger will not take effect)
  - `timetableType` The option can categorize `timetables` contents, it's two-dimensional array type. <br/> The first item in the subitem of this array can be a `string` or `object`, if it's a object, each value all will be create Dom, and key of object will be ClassName of this Dom. <br/> The second item in the subitem is a number type, it's means length of this classification. The sum of all lengths should be equal to subitem length of `timetables` option
- - `week` The option is used to set table Header column name
+ - `week` The option is used to set table head column name
+ - `highlightWeek` This option is number of index(start from 1). The index corresponds to `week` option contents, it will be add a `highlight-week` className of table head.

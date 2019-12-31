@@ -1,6 +1,6 @@
 
 ## Timetables
-[GitHub地址](https://github.com/Hzy0913/Timetable "GitHub地址")
+[English Docs](https://github.com/Hzy0913/Timetable/blob/master/README.en.md "English Docs")
 
 日程表插件，在线预览 [demo1](http://preview.binlive.cn/Timetables/index.html "demo1") 、[demo2](http://preview.binlive.cn/Timetables/example.html "demo1")
 
@@ -123,5 +123,3 @@ function onChange() {
  - `setOption` 在实例化对象上可以使用**setOption**方法重新渲染表格。参数使用同上,不需要再传入el参数绑定dom,默认使用实例化时候的dom节点
  - 日程表没有过多进行样式装饰,可以根据已有的css类自行美化。例如：有课程内容的节点会绑定名为**course-hasContent**的class，课程行单元会根据timetableType的分类对应生成**stage_number**的class，可以审查元素找到对应的自行修改样式。
 ## 作者
-
-See [飞翔的荷兰人](https://github.com/Hzy0913 "飞翔的荷兰人").

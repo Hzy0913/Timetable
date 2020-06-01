@@ -49,7 +49,7 @@ Timetable = new Timetables({
 | timetables  | Array(必传)   | 日程表内容，格式为二维数组  |
 | week  | Array(必传)   | 日程表头部周，格式为二维数组  |
 | timetableType  | Array(必传)   | 日程表左侧分类，格式为二维数组  |
-| highlightWeek  | Number  | 传入表头当天的索引，为日程表头部高亮某周增加一个class(可自定义样式)  |
+| highlightWeek  | Number  | 传入表头当天的索引，为日程表头部区域高亮周增加一个class(可自定义样式)  |
 | styles  | Object   | 日程表内容样式，具体使用见下文  |
 | merge  | Boolean   | 是否合并一天内临近的相同日程(默认为true)  |
 | gridOnClick  | Function   | 单元格点击触发事件，方法参数中可获取到该格的信息 |

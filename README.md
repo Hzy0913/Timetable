@@ -18,10 +18,7 @@ npm install timetables
 
 ```js
 import Timetables from 'timetables';
-
 let timetable;
-
-// 对于 vue、react，可以在能够获取到真实dom节点的生命周期中进行实例化
 const courseList = [
         ['语文','语文','英语','物理','语文','数学','英语','物理','物理','数学','英语','物理'],
         ['数学','语文','物理','物理','语文','语文','语文','物理','数学','语文','语文','体育'],
@@ -29,6 +26,8 @@ const courseList = [
         ['数学','语文','物理','物理','语文','语文','语文','英语','数学','语文','语文','体育'],
         ['语文','数学','英语','物理','语文','数学','英语','物理','语文','数学','英语','物理']
  ];
+
+// 对于 vue、react，可以在能够获取到真实dom节点的生命周期中进行实例化
 timetable = new Timetables({
     el: '#coursesTable',
     timetables: courseList,

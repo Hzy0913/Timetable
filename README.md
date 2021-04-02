@@ -56,14 +56,14 @@ const timetable = new Timetables({
 
 #### 参数示例
 ```javascript
-var timetables = [
+const timetables = [
         ['大学英语(Ⅳ)@10203','大学英语(Ⅳ)@10203','','','','','毛概@14208','毛概@14208','','','','选修'],
         ['','','信号与系统@11302','信号与系统@11302','模拟电子技术基础@16204','模拟电子技术基础@16204','','','','','',''],
         ['大学体育(Ⅳ)','大学体育(Ⅳ)','形势与政策(Ⅳ)@15208','形势与政策(Ⅳ)@15208','','','电路、信号与系统实验','电路、信号与系统实验','','','',''],
         ['','','','','电装实习@11301','电装实习@11301','','','','大学体育','大学体育',''],
         ['','','数据结构与算法分析','数据结构与算法分析','','','','','信号与系统','信号与系统','',''],
 ];
-var timetableType = [
+const timetableType = [
         [{index: '1',name: '8:30'}, 1],
         [{index: '2',name: '9:30'}, 1],
         [{index: '3',name: '10:30'}, 1],
@@ -77,16 +77,16 @@ var timetableType = [
         [{index: '11',name: '19:30'}, 1],
         [{index: '12',name: '20:30'}, 1]
 ];
-var week =  ['周一', '周二', '周三', '周四', '周五'];
-var highlightWeek = new Date().getDay();
-var styles = {
+const week =  ['周一', '周二', '周三', '周四', '周五'];
+const highlightWeek = new Date().getDay();
+const styles = {
     Gheight: 50,
     leftHandWidth: 50,
     palette: ['#ff6633', '#eeeeee']
 };
 
 // 实例化(初始化课表)
-var Timetable = new Timetables({
+const Timetable = new Timetables({
     el: '#coursesTable',
     timetables: timetables,
     week: week,

@@ -86,7 +86,7 @@ const styles = {
 };
 
 // 实例化(初始化课表)
-const Timetable = new Timetables({
+const timetable = new Timetables({
     el: '#coursesTable',
     timetables: timetables,
     week: week,

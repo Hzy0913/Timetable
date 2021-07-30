@@ -17,7 +17,7 @@ npm install timetables
 ```js
 import Timetables from 'timetables';
 
-let Timetable;
+let timetable;
 
 var timetableList = [
   ['English','English','Physics','Science','English','Maths','Physics','Science','Science','Maths','Physics','Science'],
@@ -28,7 +28,7 @@ var timetableList = [
 ];
 
 // You can create a timetable instance with options to set configuration.
-Timetable = new Timetables({
+timetable = new Timetables({
   el: '#coursesTable',
   timetables: timetableList,
   week: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],

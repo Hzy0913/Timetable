@@ -85,7 +85,7 @@ var styles = {
 };
 
 // Instantiate(init timetable)
-var Timetable = new Timetables({
+var timetable = new Timetables({
     el: '#coursesTable',
     timetables: timetables,
     week: week,
@@ -100,7 +100,7 @@ var Timetable = new Timetables({
 
 //reset options
 function onChange() {
-  Timetable.setOption({
+  timetable.setOption({
     timetables: courseListOther,
     week: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Saturday'],
     styles:{
